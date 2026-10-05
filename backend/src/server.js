@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS
 const allowedOrigins = [
   process.env.CLIENT_URL,
+  'https://tripsync-frontend.onrender.com',
   'https://travelbuddy-team-ecde.vercel.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000',

@@ -1,0 +1,36 @@
+services:
+  # ── Backend (Node/Express) ──────────────────────────────────────────
+  - type: web
+    name: tripsync-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false          # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false          # Set manually in Render dashboard
+      - key: OPENAI_API_KEY
+        sync: false          # Set manually in Render dashboard
+      - key: CLIENT_URL
+        value: https://tripsync-frontend.onrender.com
+
+  # ── Frontend (Vite/React — Static Site) ────────────────────────────
+  - type: web
+    name: tripsync-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://tripsync-backend.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
