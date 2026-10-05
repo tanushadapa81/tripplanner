@@ -15,7 +15,7 @@ services:
         sync: false          # Set manually in Render dashboard
       - key: JWT_SECRET
         sync: false          # Set manually in Render dashboard
-      - key: OPENAI_API_KEY
+      - key: GEMINI_API_KEY
         sync: false          # Set manually in Render dashboard
       - key: CLIENT_URL
         value: https://tripsync-frontend.onrender.com
