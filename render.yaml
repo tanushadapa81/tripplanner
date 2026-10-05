@@ -29,7 +29,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://tripsync-backend.onrender.com/api
+        value: https://tripplanner-8xad.onrender.com/api
     routes:
       - type: rewrite
         source: /*
